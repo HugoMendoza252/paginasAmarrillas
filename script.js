@@ -1,15 +1,29 @@
 // ==========================================
 // 1. BASE DE DATOS TEMPORAL EXTENDIDA
 // ==========================================
+// ==========================================
+// 1. CUENTAS DE USUARIO (9 Cuentas en Total, Clave general: "123")
+// ==========================================
 const usuariosSemilla = [
+    // Cuentas Anteriores
     { id: 101, nombre: "Carlos Mendoza", email: "carlos@gmail.com", password: "123", tipo: "cliente" },
     { id: 102, nombre: "María Fernández", email: "maria@gmail.com", password: "123", tipo: "cliente" },
     { id: 201, nombre: "Roberto Gómez", email: "roberto@plumeria.com", password: "123", tipo: "comercio" },
-    { id: 202, nombre: "Laura Casona", email: "contacto@lacasona.com", password: "123", tipo: "comercio" }
+    { id: 202, nombre: "Laura Casona", email: "contacto@lacasona.com", password: "123", tipo: "comercio" },
+
+    // --- 5 NUEVAS CUENTAS AÑADIDAS ---
+    { id: 103, nombre: "Elena Rostova", email: "elena@gmail.com", password: "123", tipo: "cliente" },
+    { id: 104, nombre: "Fernando Torres", email: "fernando@hotmail.com", password: "123", tipo: "cliente" },
+    { id: 203, nombre: "Agencia Tech Solutions", email: "hola@techsolutions.com", password: "123", tipo: "comercio" },
+    { id: 204, nombre: "Dr. Alejandro Silva", email: "contacto@drsilva.com", password: "123", tipo: "comercio" },
+    { id: 205, nombre: "Estudio Creativo Prisma", email: "contacto@prismastudio.com", password: "123", tipo: "comercio" }
 ];
 
+// ==========================================
+// 2. DIRECTORIO COMPLETO (30 Servicios / Proyectos en Total)
+// ==========================================
 const directorioSemilla = [
-    // Ejemplo de cómo luce ahora cada elemento en directorioSemilla:
+    // --- 15 SERVICIOS ANTERIORES ---
     {
         id: 1,
         nombre: "Roberto Gómez - Plomería 24/7",
@@ -20,7 +34,7 @@ const directorioSemilla = [
         imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80",
         botonTexto: "Cotizar Servicio Directo",
         rating: 4.8,
-        votos: 12
+        votos: 15
     },
     {
         id: 2,
@@ -30,7 +44,9 @@ const directorioSemilla = [
         descripcion: "Comida típica local, parrilla y atención a familias en un entorno tradicional.",
         zona: "Centro Histórico #450",
         imagen: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Reservar Mesa"
+        botonTexto: "Reservar Mesa",
+        rating: 4.6,
+        votos: 22
     },
     {
         id: 3,
@@ -40,7 +56,9 @@ const directorioSemilla = [
         descripcion: "Limpieza dental, ortodoncia y atención de urgencias odontológicas.",
         zona: "Av. Principal #120",
         imagen: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Agendar Cita Médica"
+        botonTexto: "Agendar Cita Médica",
+        rating: 4.9,
+        votos: 30
     },
     {
         id: 4,
@@ -50,7 +68,9 @@ const directorioSemilla = [
         descripcion: "Diagnóstico computarizado, frenos, cambio de aceite y mecánica general.",
         zona: "Calle Industrial #88",
         imagen: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Consultar Presupuesto"
+        botonTexto: "Consultar Presupuesto",
+        rating: 4.2,
+        votos: 8
     },
     {
         id: 5,
@@ -60,10 +80,10 @@ const directorioSemilla = [
         descripcion: "Se busca personal dinámico para atención al cliente en bar céntrico.",
         zona: "Zona Céntrica",
         imagen: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Postular a la Vacante"
+        botonTexto: "Postular a la Vacante",
+        rating: 4.5,
+        votos: 6
     },
-
-    // --- 10 NUEVOS SERVICIOS AÑADIDOS ---
     {
         id: 6,
         nombre: "Electricista Matriculado - Mantenimiento Hogar",
@@ -72,7 +92,9 @@ const directorioSemilla = [
         descripcion: "Instalaciones eléctricas residenciales, tableros, cortocircuitos y luces LED.",
         zona: "Cobertura a domicilio",
         imagen: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Solicitar Electricista"
+        botonTexto: "Solicitar Electricista",
+        rating: 4.7,
+        votos: 19
     },
     {
         id: 7,
@@ -82,7 +104,9 @@ const directorioSemilla = [
         descripcion: "Café de especialidad, repostería artesanal, desayunos y meriendas.",
         zona: "Av. San Martín #890",
         imagen: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Ver Menú / Pedir"
+        botonTexto: "Ver Menú / Pedir",
+        rating: 4.8,
+        votos: 40
     },
     {
         id: 8,
@@ -92,7 +116,9 @@ const directorioSemilla = [
         descripcion: "Rehabilitación deportiva, dolores posturales y masajes descontracturantes.",
         zona: "Consultorio Centro Médico Norte",
         imagen: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Consultar Turno"
+        botonTexto: "Consultar Turno",
+        rating: 4.9,
+        votos: 14
     },
     {
         id: 9,
@@ -102,7 +128,9 @@ const directorioSemilla = [
         descripcion: "Buscamos programador con experiencia en HTML, CSS y JS para agencia digital.",
         zona: "Trabajo Remoto / Híbrido",
         imagen: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Enviar CV"
+        botonTexto: "Enviar CV",
+        rating: 4.3,
+        votos: 11
     },
     {
         id: 10,
@@ -112,7 +140,9 @@ const directorioSemilla = [
         descripcion: "Pintura interior y exterior, colocación de durlock y acabados finos.",
         zona: "Zona Sur y Alrededores",
         imagen: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Cotizar Pintura"
+        botonTexto: "Cotizar Pintura",
+        rating: 4.1,
+        votos: 7
     },
     {
         id: 11,
@@ -122,7 +152,9 @@ const directorioSemilla = [
         descripcion: "Pizzas a la piedra, hamburguesas gourmet y envíos a domicilio rápidos.",
         zona: "Barrio Jardín #102",
         imagen: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Pedir Delivery"
+        botonTexto: "Pedir Delivery",
+        rating: 4.6,
+        votos: 35
     },
     {
         id: 12,
@@ -132,7 +164,9 @@ const directorioSemilla = [
         descripcion: "Consultas veterinarias, vacunación, cirugías menores y baño para mascotas.",
         zona: "Calle Las Heras #310",
         imagen: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Agendar Turno Pet"
+        botonTexto: "Agendar Turno Pet",
+        rating: 4.9,
+        votos: 28
     },
     {
         id: 13,
@@ -142,7 +176,9 @@ const directorioSemilla = [
         descripcion: "Corte de césped, poda de árboles, diseño de jardines y sistemas de riego.",
         zona: "Servicio a Domicilio",
         imagen: "https://images.unsplash.com/photo-1558904541-efa8c196b27d?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Solicitar Visita"
+        botonTexto: "Solicitar Visita",
+        rating: 4.4,
+        votos: 12
     },
     {
         id: 14,
@@ -152,7 +188,9 @@ const directorioSemilla = [
         descripcion: "Tutorías particulares de Matemáticas, Física e Inglés para primaria y secundaria.",
         zona: "Modalidad Presencial y Online",
         imagen: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Consultar Clases"
+        botonTexto: "Consultar Clases",
+        rating: 4.8,
+        votos: 17
     },
     {
         id: 15,
@@ -162,19 +200,197 @@ const directorioSemilla = [
         descripcion: "Estudio contable busca asistente para facturación y atención a clientes.",
         zona: "Microcentro",
         imagen: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Postularse"
+        botonTexto: "Postularse",
+        rating: 4.5,
+        votos: 9
     },
+
+    // --- 15 NUEVO SERVICIOS / PROYECTOS AÑADIDOS ---
     {
         id: 16,
-        nombre: "Búsqueda de Equipo: Programador Frontend, Backend y Diseñador UX/UI",
+        nombre: "Proyecto Startup: Busco Programador Frontend, Backend y Diseñador UX/UI",
         categoria: "proyectos",
         verificado: true,
-        descripcion: "Buscamos profesionales independientes para desarrollo de plataforma e-commerce desde cero. Se requiere: 1 Frontend (React), 1 Backend (Node.js) y 1 Diseñador (Figma).",
+        descripcion: "Desarrollo completo de app SaaS. Se busca equipo freelance: 1 Dev Frontend (React), 1 Dev Backend (Node.js/PostgreSQL) y 1 Diseñador UX/UI (Figma).",
         zona: "Modalidad 100% Remota",
         imagen: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80",
-        botonTexto: "Postularme al Proyecto"
+        botonTexto: "Postular al Equipo",
+        rating: 5.0,
+        votos: 4
+    },
+    {
+        id: 17,
+        nombre: "Estudio Fotográfico Prisma - Eventos y Sesiones",
+        categoria: "servicios",
+        verificado: true,
+        descripcion: "Cobertura fotográfica profesional para bodas, cumpleaños, retratos personales y fotos de producto para e-commerce.",
+        zona: "Estudio en Zona Centro / Desplazamientos",
+        imagen: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Cotizar Sesión",
+        rating: 4.9,
+        votos: 21
+    },
+    {
+        id: 18,
+        nombre: "Sushi & Fusion Nikkei - Express",
+        categoria: "gastronomia",
+        verificado: true,
+        descripcion: "Rolls de autor, tiraditos, ceviches y opciones vegetarianas elaborados con ingredientes frescos del día.",
+        zona: "Av. Belgrano #1200",
+        imagen: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Hacer Pedido",
+        rating: 4.7,
+        votos: 33
+    },
+    {
+        id: 19,
+        nombre: "Clínica Veterinaria 24 Horas - Dr. Silva",
+        categoria: "salud",
+        verificado: true,
+        descripcion: "Guardia médica animal 24 horas, quirófano equipado, radiografías digitales y ecografías para perros y gatos.",
+        zona: "Av. Libertador #340",
+        imagen: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Llamar a Urgencias",
+        rating: 5.0,
+        votos: 45
+    },
+    {
+        id: 20,
+        nombre: "Proyecto Rediseño de Marca: Busco Diseñador Gráfico y Marketer",
+        categoria: "proyectos",
+        verificado: true,
+        descripcion: "Cadena comercial busca profesionales independientes para rediseñar su identidad corporativa y lanzar campaña publicitaria digital.",
+        zona: "Remoto / Reuniones híbridas",
+        imagen: "https://images.unsplash.com/photo-1542744094-3a312169a165?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Enviar Portafolio",
+        rating: 4.8,
+        votos: 6
+    },
+    {
+        id: 21,
+        nombre: "Servicio de Mudanzas y Fletes San José",
+        categoria: "servicios",
+        verificado: false,
+        descripcion: "Traslado de muebles, embalaje profesional, carga/descarga y fletes dentro y fuera de la ciudad.",
+        zona: "Cobertura Regional",
+        imagen: "https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Cotizar Flete",
+        rating: 4.3,
+        votos: 10
+    },
+    {
+        id: 22,
+        nombre: "Gimnasio & Studio Fitness Vitality",
+        categoria: "salud",
+        verificado: true,
+        descripcion: "Entrenamiento funcional, musculación, clases de spinning y asesoramiento nutricional personalizado.",
+        zona: "Calle Córdoba #550",
+        imagen: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Consultar Membresía",
+        rating: 4.7,
+        votos: 29
+    },
+    {
+        id: 23,
+        nombre: "Vacante: Contador / Auditor Senior",
+        categoria: "empleo",
+        verificado: true,
+        descripcion: "Empresa de logística en expansión busca profesional graduado en Ciencias Económicas con experiencia comprobable.",
+        zona: "Distrito Financiero",
+        imagen: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Postularme",
+        rating: 4.4,
+        votos: 5
+    },
+    {
+        id: 24,
+        nombre: "Instalación y Servicio Técnico de Aire Acondicionado",
+        categoria: "servicios",
+        verificado: true,
+        descripcion: "Instalación de equipos split, carga de gas refrigerante, mantenimiento preventivo y reparación de fallas.",
+        zona: "Atención a domicilio",
+        imagen: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Solicitar Técnico",
+        rating: 4.6,
+        votos: 18
+    },
+    {
+        id: 25,
+        nombre: "Panadería y Confitería Don Juan",
+        categoria: "gastronomia",
+        verificado: true,
+        descripcion: "Pan fresco elaborado a la leña, facturas, masas finas y tortas personalizadas para eventos.",
+        zona: "Barrio San Martín #205",
+        imagen: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Encargar Torta",
+        rating: 4.9,
+        votos: 38
+    },
+    {
+        id: 26,
+        nombre: "Nutricionista Lic. Natalia Gomez",
+        categoria: "salud",
+        verificado: true,
+        descripcion: "Planes de alimentación para descenso de peso, rendimiento deportivo y nutrición vegetariana/vegana.",
+        zona: "Atención Presencial y Online",
+        imagen: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Agendar Turno",
+        rating: 4.8,
+        votos: 16
+    },
+    {
+        id: 27,
+        nombre: "Proyecto Construcción: Requiero Arquitecto y Maestro Mayor de Obra",
+        categoria: "proyectos",
+        verificado: true,
+        descripcion: "Construcción de vivienda unifamiliar de 120m2. Se requiere proyecto de planos, dirección de obra y ejecución.",
+        zona: "Zona Residencial Norte",
+        imagen: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Enviar Propuesta",
+        rating: 4.9,
+        votos: 8
+    },
+    {
+        id: 28,
+        nombre: "Limpieza Profesional de Tapizados y Alfombras",
+        categoria: "servicios",
+        verificado: false,
+        descripcion: "Lavado e higienización profunda con máquinas de inyección y extracción para sillones, colchones y autos.",
+        zona: "Servicio a Domicilio",
+        imagen: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Cotizar Limpieza",
+        rating: 4.5,
+        votos: 13
+    },
+    {
+        id: 29,
+        nombre: "Vacante: Recepcionista y Atención al Cliente",
+        categoria: "empleo",
+        verificado: true,
+        descripcion: "Hotel boutique busca personal capacitado para recepción, gestión de reservas e informes a turistas.",
+        zona: "Centro Turístico",
+        imagen: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Enviar Curriculum",
+        rating: 4.2,
+        votos: 7
+    },
+    {
+        id: 30,
+        nombre: "Barbería & Club Masculino Don Corleone",
+        categoria: "servicios",
+        verificado: true,
+        descripcion: "Cortes de cabello modernos y clásicos, perfilado de barba con toalla caliente y tratamiento facial.",
+        zona: "Calle Moreno #780",
+        imagen: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=500&q=80",
+        botonTexto: "Agendar Cita",
+        rating: 4.9,
+        votos: 52
     }
 ];
+
+
+// REINICIO FORZADO DE MEMORIA PARA REFLEJAR NUEVOS DATOS
+setDB('db_usuarios', usuariosSemilla);
 setDB('db_directorio', directorioSemilla);
 
 // Reinicio de Memoria para asegurar actualización
@@ -223,22 +439,33 @@ function logout() {
 // ==========================================
 // 3. RENDERIZADO DE FICHAS
 // ==========================================
+// ==========================================
+// 3. RENDERIZADO DE FICHAS CON LÍMITE EN INICIO
+// ==========================================
 function renderDirectory(items) {
     const grid = document.getElementById('directoryGrid');
     if (!grid) return;
     grid.innerHTML = "";
 
     if (items.length === 0) {
-        grid.innerHTML = "<p>No hay resultados registrados.</p>";
+        grid.innerHTML = "<p>No hay resultados registrados para esta búsqueda.</p>";
         return;
     }
 
-    items.forEach(item => {
+    // Detectamos si estamos en la página principal (index.html)
+    const esPaginaInicio = window.location.pathname.endsWith('index.html') ||
+        window.location.pathname === '/' ||
+        window.location.pathname.endsWith('/');
+
+    // Si estamos en inicio, recortamos el arreglo a solo los primeros 10 elementos
+    const itemsAMostrar = esPaginaInicio ? items.slice(0, 10) : items;
+
+    itemsAMostrar.forEach(item => {
         const ratingVal = item.rating || 5.0;
         const card = document.createElement('div');
         card.classList.add('card');
 
-        // Al hacer clic en la tarjeta (excepto en el botón), se abre el modal de detalle
+        // Al hacer clic en la tarjeta (excepto en el botón), abre el detalle
         card.onclick = (e) => {
             if (!e.target.classList.contains('btn-action')) {
                 openDetailModal(item.id);
@@ -248,7 +475,7 @@ function renderDirectory(items) {
         card.innerHTML = `
             <img src="${item.imagen || 'https://via.placeholder.com/500x300'}" class="card-img">
             <div class="card-body">
-                <div style="display: flex; justify-space-between; align-items: center; margin-bottom: 5px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
                     ${item.verificado ? '<span class="badge-verified"><i class="fa-solid fa-circle-check"></i> Verificado</span>' : '<span></span>'}
                     <span style="font-weight: bold; color: #ffc107; font-size: 0.9rem;">
                         <i class="fa-solid fa-star"></i> ${ratingVal.toFixed(1)}
