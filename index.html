@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Páginas Amarillas Inteligentes | Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Encabezado / Navegación -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-book-bookmark logo-icon"></i>
+            <span>Páginas<b>Amarillas</b>.digital</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="servicios.html"><i class="fa-solid fa-list"></i> Ver Directorio Completo</a></li>
+                <li id="authNav">
+                    <button class="btn-auth" onclick="openAuthModal()"><i class="fa-solid fa-user"></i> Iniciar
+                        Sesión</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section / Buscador -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Encuentra comercios, independientes y empleo en tu zona</h1>
+            <p>La evolución digital del directorio comercial local con geolocalización y verificación.</p>
+
+            <div class="search-box">
+                <div class="input-group">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="¿Qué buscas? (ej. Plomero, Restaurante)">
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-filter"></i>
+                    <select id="categoryFilter">
+                        <option value="todos">Todas las Categorías</option>
+                        <option value="servicios">Servicios Técnicos y Profesionales</option>
+                        <option value="gastronomia">Gastronomía y Locales</option>
+                        <option value="salud">Salud y Bienestar</option>
+                        <option value="proyectos">Proyectos & Contrataciones Multi-rol</option> <!-- NUEVA -->
+                        <option value="empleo">Bolsa de Trabajo</option>
+                    </select>
+                </div>
+                <button id="searchBtn"><i class="fa-solid fa-search"></i> Buscar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vista Previa de Destacados -->
+    <main class="container">
+        <div class="section-header">
+            <h2 class="section-title">Servicios y Comercios Destacados</h2>
+            <a href="servicios.html" class="link-more">Ver todos los servicios <i
+                    class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="grid-cards" id="directoryGrid"></div>
+    </main>
+
+    <!-- MODALES (Compartidos) -->
+    <!-- Modal de Detalle Completo y Calificaciones -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content modal-large">
+            <!-- BOTÓN DE 'X' PARA SALIR -->
+            <span class="close-btn" onclick="closeModals()">&times;</span>
+
+            <div class="detail-header">
+                <img id="detailImg" src="" alt="Imagen del Servicio" class="detail-img">
+                <div class="detail-header-info">
+                    <span id="detailBadge" class="badge-verified"></span>
+                    <h2 id="detailTitle">Cargando...</h2>
+                    <p id="detailCategory" class="detail-category-tag"></p>
+                    <p id="detailZone"><i class="fa-solid fa-location-dot"></i> <span></span></p>
+
+                    <!-- Puntuación Promedio -->
+                    <div class="rating-summary">
+                        <div id="detailStars" class="stars-display"></div>
+                        <span id="detailRatingText" class="rating-number">0.0 / 5</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-body">
+                <h3><i class="fa-solid fa-circle-info"></i> Descripción y Detalle</h3>
+                <p id="detailDescription" class="detail-desc-text"></p>
+
+                <hr>
+
+                <!-- Sección de Calificación interactiva -->
+                <h3><i class="fa-solid fa-star"></i> Deja tu Calificación</h3>
+                <div class="rate-box">
+                    <p>¿Has interactuado con este servicio o proyecto? ¡Valóralo!</p>
+                    <div class="star-rating-input">
+                        <i class="fa-star fa-regular star-btn" data-value="1"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="2"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="3"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="4"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="5"></i>
+                    </div>
+                    <button id="btnSubmitRating" class="btn-submit-rating" disabled>Enviar Calificación</button>
+                </div>
+            </div>
+
+            <div class="detail-footer">
+                <button id="detailActionBtn" class="btn-action">Contactar / Postularme</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModals()">&times;</span>
+            <h3 id="modalTitle">Solicitar Cotización / Reserva</h3>
+            <form id="bookingForm">
+                <label>Tu Nombre:</label>
+                <input type="text" required placeholder="Ej. Juan Pérez">
+
+                <label>Teléfono / WhatsApp:</label>
+                <input type="tel" required placeholder="+54 9 11 ...">
+
+                <label>Detalle del servicio:</label>
+                <textarea rows="4" placeholder="Describe lo que necesitas..."></textarea>
+
+                <button type="submit" class="btn-submit">Enviar Solicitud Directa</button>
+            </form>
+        </div>
+    </div>
+    <!-- Modal de Detalle Completo y Calificaciones -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close-btn" onclick="closeModals()">&times;</span>
+
+            <div class="detail-header">
+                <img id="detailImg" src="" alt="Imagen del Servicio" class="detail-img">
+                <div class="detail-header-info">
+                    <span id="detailBadge" class="badge-verified"></span>
+                    <h2 id="detailTitle">Cargando...</h2>
+                    <p id="detailCategory" class="detail-category-tag"></p>
+                    <p id="detailZone"><i class="fa-solid fa-location-dot"></i> <span></span></p>
+
+                    <!-- Puntuación Promedio -->
+                    <div class="rating-summary">
+                        <div id="detailStars" class="stars-display"></div>
+                        <span id="detailRatingText" class="rating-number">0.0 / 5</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-body">
+                <h3><i class="fa-solid fa-circle-info"></i> Descripción y Detalle</h3>
+                <p id="detailDescription" class="detail-desc-text"></p>
+
+                <hr>
+
+                <!-- Sección de Calificación interactiva -->
+                <h3><i class="fa-solid fa-star"></i> Deja tu Calificación</h3>
+                <div class="rate-box">
+                    <p>¿Has interactuado con este servicio o proyecto? ¡Valóralo!</p>
+                    <div class="star-rating-input">
+                        <i class="fa-star fa-regular star-btn" data-value="1"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="2"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="3"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="4"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="5"></i>
+                    </div>
+                    <button id="btnSubmitRating" class="btn-submit-rating" disabled>Enviar Calificación</button>
+                </div>
+            </div>
+
+            <div class="detail-footer">
+                <button id="detailActionBtn" class="btn-action">Contactar / Postularme</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 Páginas Amarillas Digitales. Impulsando el comercio e independientes locales.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

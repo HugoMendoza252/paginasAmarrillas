@@ -1,0 +1,150 @@
+/* Estilos específicos para la vista de Perfil */
+.profile-header {
+    background: linear-gradient(135deg, var(--text-dark) 0%, #3a3a3a 100%);
+    color: var(--white);
+    padding: 40px 20px;
+    border-bottom: 4px solid var(--primary-yellow);
+}
+
+.profile-header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-yellow);
+    color: var(--text-dark);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+}
+
+.profile-title h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.badge-role {
+    background-color: rgba(255, 204, 0, 0.2);
+    color: var(--primary-yellow);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    display: inline-block;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.profile-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--gray-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--gray-border);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.help-text {
+    font-size: 0.75rem;
+    color: #777;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.my-services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.my-services-header h2 {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.btn-add-mini {
+    background-color: var(--success-green);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.my-service-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border: 1px solid var(--gray-border);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: #fafafa;
+}
+
+.my-service-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.my-service-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.my-service-info h4 {
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+}
+
+.my-service-info p {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-delete:hover {
+    background-color: #bd2130;
+}

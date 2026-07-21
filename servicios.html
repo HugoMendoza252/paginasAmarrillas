@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Completo de Servicios | Páginas Amarillas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Encabezado / Navegación -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-book-bookmark logo-icon"></i>
+            <span>Páginas<b>Amarillas</b>.digital</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="servicios.html" class="active"><i class="fa-solid fa-list"></i> Ver Directorio Completo</a>
+                </li>
+                <li id="authNav">
+                    <button class="btn-auth" onclick="openAuthModal()"><i class="fa-solid fa-user"></i> Iniciar
+                        Sesión</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Superior -->
+    <section class="banner-page">
+        <div class="container">
+            <h1>Directorio Comercial y Catálogo de Servicios</h1>
+            <p>Explora la lista completa de negocios verificados, profesionales independientes y ofertas laborales.</p>
+        </div>
+    </section>
+
+    <!-- Módulo de Filtros y Publicaciones -->
+    <main class="container">
+        <div class="section-header">
+            <div class="filter-bar">
+                <input type="text" id="searchInput" placeholder="Filtrar por nombre o palabra clave...">
+                <select id="categoryFilter">
+                    <option value="todos">Todas las Categorías</option>
+                    <option value="servicios">Servicios Técnicos y Profesionales</option>
+                    <option value="gastronomia">Gastronomía y Locales</option>
+                    <option value="salud">Salud y Bienestar</option>
+                    <option value="empleo">Bolsa de Trabajo</option>
+                </select>
+                <button id="searchBtn"><i class="fa-solid fa-filter"></i> Filtrar</button>
+            </div>
+
+            <button id="addBusinessBtn" class="btn-add" style="display: none;">
+                <i class="fa-solid fa-plus"></i> Publicar Servicio / Negocio
+            </button>
+        </div>
+
+        <div class="grid-cards" id="directoryGrid"></div>
+    </main>
+
+    <!-- MODALES Compartidos -->
+    <!-- Modal de Detalle Completo y Calificaciones -->
+    <!-- Modal de Detalle Completo y Calificaciones -->
+    <!-- Modal de Detalle Completo y Calificaciones -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content modal-large">
+            <!-- BOTÓN DE 'X' PARA SALIR -->
+            <span class="close-btn" onclick="closeModals()">&times;</span>
+
+            <div class="detail-header">
+                <img id="detailImg" src="" alt="Imagen del Servicio" class="detail-img">
+                <div class="detail-header-info">
+                    <span id="detailBadge" class="badge-verified"></span>
+                    <h2 id="detailTitle">Cargando...</h2>
+                    <p id="detailCategory" class="detail-category-tag"></p>
+                    <p id="detailZone"><i class="fa-solid fa-location-dot"></i> <span></span></p>
+
+                    <!-- Puntuación Promedio -->
+                    <div class="rating-summary">
+                        <div id="detailStars" class="stars-display"></div>
+                        <span id="detailRatingText" class="rating-number">0.0 / 5</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-body">
+                <h3><i class="fa-solid fa-circle-info"></i> Descripción y Detalle</h3>
+                <p id="detailDescription" class="detail-desc-text"></p>
+
+                <hr>
+
+                <!-- Sección de Calificación interactiva -->
+                <h3><i class="fa-solid fa-star"></i> Deja tu Calificación</h3>
+                <div class="rate-box">
+                    <p>¿Has interactuado con este servicio o proyecto? ¡Valóralo!</p>
+                    <div class="star-rating-input">
+                        <i class="fa-star fa-regular star-btn" data-value="1"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="2"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="3"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="4"></i>
+                        <i class="fa-star fa-regular star-btn" data-value="5"></i>
+                    </div>
+                    <button id="btnSubmitRating" class="btn-submit-rating" disabled>Enviar Calificación</button>
+                </div>
+            </div>
+
+            <div class="detail-footer">
+                <button id="detailActionBtn" class="btn-action">Contactar / Postularme</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModals()">&times;</span>
+            <h3 id="modalTitle">Solicitar Cotización / Reserva</h3>
+            <form id="bookingForm">
+                <label>Tu Nombre:</label>
+                <input type="text" required placeholder="Ej. Juan Pérez">
+                <label>Teléfono / WhatsApp:</label>
+                <input type="tel" required placeholder="+54 9 11 ...">
+                <label>Detalle del servicio:</label>
+                <textarea rows="4" placeholder="Describe lo que necesitas..."></textarea>
+                <button type="submit" class="btn-submit">Enviar Solicitud Directa</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para Publicar Negocio -->
+    <!-- Modal para Publicar Negocio o Proyecto -->
+    <div id="newBusinessModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModals()">&times;</span>
+            <h3><i class="fa-solid fa-briefcase"></i> Publicar Servicio o Proyecto de Contratación</h3>
+            <form id="newBusinessForm">
+                <label>Título de la Publicación o Proyecto:</label>
+                <input type="text" id="bizTitle" required
+                    placeholder="Ej. Proyecto Web: Busco Frontend, Backend y Diseñador UI/UX">
+
+                <label>Categoría:</label>
+                <select id="bizCategory">
+                    <option value="servicios">Servicios e Independientes</option>
+                    <option value="gastronomia">Gastronomía y Comercios</option>
+                    <option value="salud">Salud y Bienestar</option>
+                    <option value="proyectos">Proyectos & Contrataciones (Multi-rol)</option>
+                    <option value="empleo">Bolsa de Empleo Tradicional</option>
+                </select>
+
+                <label>Ubicación / Modalidad:</label>
+                <input type="text" id="bizZone" required placeholder="Ej. Remoto / Buenos Aires, Argentina">
+
+                <label>Descripción del Proyecto y Perfiles Requeridos:</label>
+                <textarea id="bizDesc" rows="4" required
+                    placeholder="Describe el proyecto en detalle y qué roles necesitas contratar..."></textarea>
+
+                <label>URL de Imagen o Banner (Opcional):</label>
+                <input type="url" id="bizImg" placeholder="https://ejemplo.com/imagen.jpg">
+
+                <button type="submit" class="btn-submit">Publicar Oferta de Proyecto</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Páginas Amarillas Digitales. Impulsando el comercio e independientes locales.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
